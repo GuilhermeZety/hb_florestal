@@ -43,6 +43,22 @@ class _ApresentationSectionState extends State<ApresentationSection> {
                 fit: BoxFit.cover,
               ).pBottom(60 + 24),
             ),
+            if (!context.isDesktop)
+              Positioned.fill(
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Colors.black,
+                        Colors.black.withOpacity(0.3),
+                        Colors.transparent,
+                      ],
+                    ),
+                  ),
+                ),
+              ),
             Center(
               child: Row(
                 mainAxisAlignment: !context.isDesktop ? MainAxisAlignment.center : MainAxisAlignment.start,

@@ -3,7 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:hb_florestal/app/core/common/constants/app_colors.dart';
 
 extension Expanding on Widget {
-  Widget expanded({int flex = 1}) => Expanded(flex: flex, child: this);
+  Widget expanded({int? flex = 1}) => flex == null ? this : Expanded(flex: flex, child: this);
 
   Widget expandedH({int flex = 1}) => Row(children: [Expanded(flex: flex, child: this)]);
 }

@@ -10,7 +10,7 @@ import 'package:hb_florestal/app/core/shared/session_memory.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/about_us_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/apresentation_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/contact_section.dart';
-import 'package:hb_florestal/app/modules/home/presentation/pages/sections/projects_section.dart';
+import 'package:hb_florestal/app/modules/home/presentation/pages/sections/equipaments_section.dart';
 import 'package:hb_florestal/main.dart';
 import 'package:signals/signals_flutter.dart';
 
@@ -43,8 +43,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      backgroundColor: context.colorScheme.secondaryContainer,
-      surfaceTintColor: context.colorScheme.secondaryContainer,
+      backgroundColor: context.colorScheme.primaryContainer,
+      surfaceTintColor: Colors.transparent,
       automaticallyImplyLeading: false,
       toolbarHeight: 80,
       title: GestureDetector(
@@ -85,7 +85,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
           const Gap(8),
           AppBarItem(
             title: 'Equipamentos',
-            currentKey: ProjectsSection.currentKey,
+            currentKey: EquipamentsSection.currentKey,
             animationDelay: 400.ms,
           ),
           const Gap(8),

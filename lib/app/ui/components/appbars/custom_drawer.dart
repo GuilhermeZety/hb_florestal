@@ -11,7 +11,7 @@ import 'package:hb_florestal/app/core/common/utils/scroll_util.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/about_us_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/apresentation_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/contact_section.dart';
-import 'package:hb_florestal/app/modules/home/presentation/pages/sections/projects_section.dart';
+import 'package:hb_florestal/app/modules/home/presentation/pages/sections/equipaments_section.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
@@ -57,7 +57,7 @@ class CustomDrawer extends StatelessWidget {
             name: 'projects',
             ontap: () {
               Scaffold.of(context).closeEndDrawer();
-              ScrollUtil.to(ProjectsSection.currentKey.currentContext!);
+              ScrollUtil.to(EquipamentsSection.currentKey.currentContext!);
             },
           ),
           ItemDrawer(

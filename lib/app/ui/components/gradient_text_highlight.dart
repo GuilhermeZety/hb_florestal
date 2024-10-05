@@ -5,13 +5,15 @@ class GradientTextHighlight extends StatelessWidget {
   final List<(int, int)> spans;
   final LinearGradient gradient;
   final TextStyle? style;
+  final TextAlign? textAlign;
 
   const GradientTextHighlight({
     super.key,
     required this.text,
     required this.spans,
     required this.gradient,
-    required this.style,
+    this.style,
+    this.textAlign,
   });
 
   @override
@@ -21,8 +23,9 @@ class GradientTextHighlight extends StatelessWidget {
     return Text.rich(
       TextSpan(
         children: textSpans,
-        style: style,
       ),
+      style: style,
+      textAlign: textAlign,
     );
   }
 
