@@ -20,7 +20,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
           const Gap(60),
           Container(
             width: 200,
-            height: 500,
+            height: 100,
             color: Colors.blue,
           ),
         ],

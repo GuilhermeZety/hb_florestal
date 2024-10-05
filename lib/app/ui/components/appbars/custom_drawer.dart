@@ -8,7 +8,7 @@ import 'package:hb_florestal/app/core/common/extensions/context_extension.dart';
 import 'package:hb_florestal/app/core/common/extensions/text_extension.dart';
 import 'package:hb_florestal/app/core/common/extensions/widget/widget_extension.dart';
 import 'package:hb_florestal/app/core/common/utils/scroll_util.dart';
-import 'package:hb_florestal/app/modules/home/presentation/pages/sections/about_me_section.dart';
+import 'package:hb_florestal/app/modules/home/presentation/pages/sections/about_us_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/apresentation_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/contact_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/projects_section.dart';
@@ -46,7 +46,7 @@ class CustomDrawer extends StatelessWidget {
             name: 'about_me',
             ontap: () {
               Scaffold.of(context).closeEndDrawer();
-              ScrollUtil.to(AboutMeSection.currentKey.currentContext!);
+              ScrollUtil.to(AboutUsSection.currentKey.currentContext!);
             },
           ),
           ItemDrawer(

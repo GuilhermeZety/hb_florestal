@@ -7,7 +7,7 @@ import 'package:hb_florestal/app/core/common/extensions/context_extension.dart';
 import 'package:hb_florestal/app/core/common/extensions/widget/widget_extension.dart';
 import 'package:hb_florestal/app/core/common/utils/scroll_util.dart';
 import 'package:hb_florestal/app/core/shared/session_memory.dart';
-import 'package:hb_florestal/app/modules/home/presentation/pages/sections/about_me_section.dart';
+import 'package:hb_florestal/app/modules/home/presentation/pages/sections/about_us_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/apresentation_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/contact_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/projects_section.dart';
@@ -79,7 +79,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
           const Gap(8),
           AppBarItem(
             title: 'Quem Somos',
-            currentKey: AboutMeSection.currentKey,
+            currentKey: AboutUsSection.currentKey,
             animationDelay: 400.ms,
           ),
           const Gap(8),

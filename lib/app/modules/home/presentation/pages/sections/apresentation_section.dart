@@ -10,7 +10,7 @@ import 'package:hb_florestal/app/core/common/utils/scroll_util.dart';
 import 'package:hb_florestal/app/core/shared/features/prismic/models/content_model.dart';
 import 'package:hb_florestal/app/core/shared/prismic_memory.dart';
 import 'package:hb_florestal/app/core/shared/session_memory.dart';
-import 'package:hb_florestal/app/modules/home/presentation/pages/sections/about_me_section.dart';
+import 'package:hb_florestal/app/modules/home/presentation/pages/sections/about_us_section.dart';
 import 'package:hb_florestal/app/ui/components/gradient_text_highlight.dart';
 import 'package:signals/signals_flutter.dart';
 
@@ -24,14 +24,14 @@ class ApresentationSection extends StatefulWidget {
 }
 
 class _ApresentationSectionState extends State<ApresentationSection> {
-  ApresentationContent apresentation = PrismicMemory().apresentation!;
+  ApresentationContent apresentation = PrismicMemory().apresentation;
 
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       key: ApresentationSection.currentKey,
       child: Container(
-        height: context.height - 80 - 20,
+        height: context.height - 80,
         color: context.colorScheme.primaryContainer,
         child: Stack(
           children: [
@@ -58,7 +58,7 @@ class _ApresentationSectionState extends State<ApresentationSection> {
               child: Center(
                 child: IconButton(
                   onPressed: () {
-                    ScrollUtil.to(AboutMeSection.currentKey.currentContext!);
+                    ScrollUtil.to(AboutUsSection.currentKey.currentContext!);
                   },
                   icon: Row(
                     mainAxisSize: MainAxisSize.min,
@@ -84,7 +84,7 @@ class _ApresentationSectionState extends State<ApresentationSection> {
               )
             : Container(
                 decoration: BoxDecoration(
-                  color: context.colorScheme.tertiaryContainer.withOpacity(0.6),
+                  color: Colors.black.withOpacity(0.2),
                   shape: BoxShape.circle,
                 ),
                 width: 20,

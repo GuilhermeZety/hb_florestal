@@ -20,7 +20,7 @@ class _ContactSectionState extends State<ContactSection> {
           const Gap(60),
           Container(
             width: 400,
-            height: 500,
+            height: 100,
             color: Colors.teal,
           ),
           const Gap(60),

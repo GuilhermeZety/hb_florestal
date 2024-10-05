@@ -10,14 +10,14 @@ class PrismicMemory {
   factory PrismicMemory() => PrismicMemory._instance;
   //
 
-  ApresentationContent? apresentation;
-  NumbersContent? numbers;
-  ServicesContent? servicos;
-  AboutContent? sobre;
-  EquipamentosContent? equipamentos;
-  QuemNosSomosContent? quemSomos;
-  ContactContent? contato;
-  FooterContent? footer;
+  late ApresentationContent apresentation;
+  late NumbersContent numbers;
+  late ServicesContent servicos;
+  late AboutContent sobre;
+  late EquipamentosContent equipamentos;
+  late QuemNosSomosContent quemSomos;
+  late ContactContent contato;
+  late FooterContent footer;
 
   Future load() async {
     Stopwatch stopwatch = Stopwatch()..start();

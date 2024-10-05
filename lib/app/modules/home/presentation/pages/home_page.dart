@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hb_florestal/app/modules/home/presentation/pages/sections/about_me_section.dart';
+import 'package:hb_florestal/app/modules/home/presentation/pages/sections/about_us_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/apresentation_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/contact_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/footer_section.dart';
@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> with SignalsMixin {
             slivers: [
               CustomAppBar(),
               ApresentationSection(),
-              AboutMeSection(),
+              AboutUsSection(),
               ProjectsSection(),
               ContactSection(),
               FooterSection(),
