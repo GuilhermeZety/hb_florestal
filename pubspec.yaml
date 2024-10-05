@@ -1,0 +1,59 @@
+name: hb_florestal
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  custom_refresh_indicator: ^4.0.1
+  flutter_animate: ^4.5.0
+  flutter_vibrate: ^1.3.0
+  gap: ^3.0.1
+  loading_animation_widget: ^1.3.0
+  localization: ^2.1.1
+  signals: ^5.5.0
+  toastification: ^2.3.0
+  shared_preferences: ^2.3.2
+  gif: ^2.3.0
+  url_strategy: ^0.3.0
+  flutter_svg: ^2.0.10+1
+  animated_text_kit: ^4.2.2
+  auto_size_text: ^3.0.0
+  flusmic: ^4.0.1
+  dio: ^5.7.0
+  equatable: ^2.0.5
+  url_launcher: ^6.3.0
+  
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: "^0.14.1"
+  flutter_native_splash: ^2.4.1
+
+flutter_native_splash:
+  android: false
+  ios: false
+  web: true
+  
+  color: "#EDF8EC"
+
+  image: assets/native_splash.png
+
+  android_12:
+    color: "#EDF8EC"
+    image: assets/native_splash.png
+
+flutter_launcher_icons:
+  web:
+    generate: true
+    image_path: "assets/logo/web.png"
+    background_color: "#201E1F"
+    theme_color: "#201E1F"
+  
+flutter:
+  uses-material-design: true
