@@ -49,7 +49,7 @@ class _ProjectsSectionState extends State<EquipamentsSection> {
                   color: AppColors.grey_850,
                 ).expanded(),
               ],
-            ).pH(context.pageMargin / 5),
+            ).pH(context.pageMargin / 3),
             const Gap(12),
             Container(
               color: AppColors.grey_850,
@@ -57,9 +57,9 @@ class _ProjectsSectionState extends State<EquipamentsSection> {
               child: Column(
                 children: [
                   _buildTitle(),
-                  Gap(context.isDesktop ? 80 : 48),
+                  Gap(context.isDesktop ? 48 : 32),
                   _buildControllerAndDivider(),
-                  Gap(context.isDesktop ? 80 : 48),
+                  Gap(context.isDesktop ? 48 : 32),
                   _buildEquipaments(),
                 ],
               ),
@@ -73,7 +73,7 @@ class _ProjectsSectionState extends State<EquipamentsSection> {
   Widget _buildTitle() {
     return SeparatedFlex(
       direction: context.width < 1250 ? Axis.vertical : Axis.horizontal,
-      separatorBuilder: () => Gap(context.pageMargin),
+      separatorBuilder: () => Gap(context.pageMargin / 3),
       crossAxisAlignment: context.width < 1250 ? CrossAxisAlignment.start : CrossAxisAlignment.end,
       children: [
         NamedTitle(
@@ -93,7 +93,7 @@ class _ProjectsSectionState extends State<EquipamentsSection> {
           ),
         ).expanded(flex: context.width < 1250 ? null : 1),
       ],
-    ).pH(context.pageMargin / 2);
+    ).pH(context.pageMargin);
   }
 
   Widget _buildControllerAndDivider() {
@@ -125,35 +125,38 @@ class _ProjectsSectionState extends State<EquipamentsSection> {
           ),
         ),
       ],
-    ).pH(context.pageMargin / 5);
+    ).pH(context.pageMargin / 1.8);
   }
 
   Widget _buildEquipaments() {
-    var va = getVA();
-
-    return SizedBox(
-      width: context.width,
-      child: CarouselSlider(
-        carouselController: carouselController,
-        options: CarouselOptions(
-          viewportFraction: va.viewport,
-          enlargeCenterPage: false,
-          enableInfiniteScroll: true,
-          autoPlay: true,
-          autoPlayInterval: 6.seconds,
-          aspectRatio: va.aspectRatio,
-        ),
-        items: [
-          ...equipamentos.equipamentos.map(
-            (e) => equipementItem(
-              e.imagem,
-              e.titulo,
-              e.descricao,
-            ).pH(8),
+    return LayoutBuilder(
+      builder: (context, ccc) {
+        var va = getVA(ccc.maxWidth);
+        return SizedBox(
+          width: context.width,
+          child: CarouselSlider(
+            carouselController: carouselController,
+            options: CarouselOptions(
+              viewportFraction: va.viewport,
+              enlargeCenterPage: false,
+              enableInfiniteScroll: true,
+              autoPlay: true,
+              autoPlayInterval: 6.seconds,
+              aspectRatio: va.aspectRatio,
+            ),
+            items: [
+              ...equipamentos.equipamentos.map(
+                (e) => equipementItem(
+                  e.imagem,
+                  e.titulo,
+                  e.descricao,
+                ).pH(8),
+              ),
+            ],
           ),
-        ],
-      ).pH(context.pageMargin / 2),
-    );
+        );
+      },
+    ).pH(context.pageMargin);
   }
 
   Widget equipementItem(String image, String title, String description) {
@@ -195,37 +198,37 @@ class _ProjectsSectionState extends State<EquipamentsSection> {
     );
   }
 
-  ({double viewport, double aspectRatio}) getVA() {
+  ({double viewport, double aspectRatio}) getVA(double width) {
     var viewport = 0.35;
     double aspectRatio = 2;
-    if (context.width < 1600) {
+    if (width < 1600) {
       aspectRatio = 1.7;
     }
-    if (context.width < 1300) {
+    if (width < 1300) {
       aspectRatio = 1.5;
     }
-    if (context.width < 1050) {
+    if (width < 1050) {
       aspectRatio = 1.3;
       viewport = 0.4;
     }
-    if (context.width < 820) {
+    if (width < 820) {
       aspectRatio = 1;
     }
-    if (context.width < 680) {
+    if (width < 680) {
       viewport = 0.6;
     }
-    if (context.width < 580) {
+    if (width < 580) {
       aspectRatio = 0.8;
     }
-    if (context.width < 490) {
+    if (width < 490) {
       viewport = 0.7;
       aspectRatio = 0.6;
     }
-    if (context.width < 400) {
+    if (width < 400) {
       viewport = 0.8;
       aspectRatio = 0.5;
     }
-    if (context.width < 335) {
+    if (width < 335) {
       viewport = 1;
       aspectRatio = 0.4;
     }

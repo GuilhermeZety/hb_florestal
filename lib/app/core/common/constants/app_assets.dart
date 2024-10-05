@@ -16,4 +16,6 @@ class AppImages {
 class AppSvgs {
   static String get _path => !kDebugMode ? 'assets/svgs' : 'svgs';
   final String mouse = '$_path/mouse.svg';
+  final String insta = '$_path/insta.svg';
+  final String whats = '$_path/whats.svg';
 }

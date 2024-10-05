@@ -1,16 +1,13 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:hb_florestal/app/core/common/constants/app_colors.dart';
 import 'package:hb_florestal/app/core/common/constants/app_fonts.dart';
 import 'package:hb_florestal/app/core/common/extensions/context_extension.dart';
 import 'package:hb_florestal/app/core/common/extensions/text_extension.dart';
 import 'package:hb_florestal/app/core/common/extensions/widget/widget_extension.dart';
-import 'package:hb_florestal/app/core/common/utils/scroll_util.dart';
 import 'package:hb_florestal/app/core/shared/features/prismic/models/content_model.dart';
 import 'package:hb_florestal/app/core/shared/prismic_memory.dart';
 import 'package:hb_florestal/app/core/shared/session_memory.dart';
-import 'package:hb_florestal/app/modules/home/presentation/pages/sections/about_us_section.dart';
 import 'package:hb_florestal/app/ui/components/gradient_text_highlight.dart';
 import 'package:signals/signals_flutter.dart';
 
@@ -31,7 +28,7 @@ class _ApresentationSectionState extends State<ApresentationSection> {
     return SliverToBoxAdapter(
       key: ApresentationSection.currentKey,
       child: Container(
-        height: context.height - 80,
+        height: context.height - 160,
         color: context.colorScheme.primaryContainer,
         child: Stack(
           children: [
@@ -41,7 +38,7 @@ class _ApresentationSectionState extends State<ApresentationSection> {
                 width: context.width,
                 height: context.height,
                 fit: BoxFit.cover,
-              ).pBottom(60 + 24),
+              ),
             ),
             if (!context.isDesktop)
               Positioned.fill(
@@ -67,53 +64,10 @@ class _ApresentationSectionState extends State<ApresentationSection> {
                 ],
               ),
             ),
-            Positioned(
-              bottom: 24,
-              left: 0,
-              right: 0,
-              child: Center(
-                child: IconButton(
-                  onPressed: () {
-                    ScrollUtil.to(AboutUsSection.currentKey.currentContext!);
-                  },
-                  icon: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      gesture(),
-                      const Text('Continue').pH(16).pBottom(3),
-                      gesture(),
-                    ],
-                  ).pH(16),
-                ),
-              ),
-            ),
           ],
         ),
       ),
     );
-  }
-
-  Widget gesture() {
-    return (context.isDesktop
-            ? const Icon(
-                Icons.arrow_downward,
-              )
-            : Container(
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.2),
-                  shape: BoxShape.circle,
-                ),
-                width: 20,
-                height: 20,
-              ))
-        .animate(
-          onComplete: (controller) => controller.repeat(reverse: true),
-        )
-        .slideY(
-          duration: 1.seconds,
-          begin: -0.1,
-          end: 0.1,
-        );
   }
 
   Widget _buildApresentation() {

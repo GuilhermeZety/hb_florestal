@@ -33,14 +33,14 @@ class _HomePageState extends State<HomePage> with SignalsMixin {
       body: Stack(
         children: [
           CustomScrollView(
-            controller: ScrollController(initialScrollOffset: 1800),
-            slivers: [
-              const CustomAppBar(),
-              const ApresentationSection(),
-              const AboutUsSection(),
-              const EquipamentsSection(),
-              const ContactSection(),
-              const FooterSection(),
+            controller: ScrollController(initialScrollOffset: 3000),
+            slivers: const [
+              CustomAppBar(),
+              ApresentationSection(),
+              AboutUsSection(),
+              EquipamentsSection(),
+              ContactSection(),
+              FooterSection(),
             ],
           ),
         ],
