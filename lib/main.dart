@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:hb_florestal/app/app_widget.dart';
+import 'package:hb_florestal/app/core/shared/current_session.dart';
+import 'package:url_strategy/url_strategy.dart';
 
-void main() {
-  runApp(const MainApp());
+double contentMaxWidth = 1200;
+
+void main() async {
+  setPathUrlStrategy();
+  WidgetsFlutterBinding.ensureInitialized();
+  CurrentSession().init();
+  runApp(
+    const AppWidget(),
+  );
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
-  }
-}
+bool mainAnimation = true;

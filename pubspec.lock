@@ -177,14 +177,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
-  flusmic:
-    dependency: "direct main"
-    description:
-      name: flusmic
-      sha256: dcf0483d4eaf3e1693083177b61417d38cef00b37720fff9660e53d399ff3d5c
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.0.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -243,27 +235,11 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_vibrate:
-    dependency: "direct main"
-    description:
-      name: flutter_vibrate
-      sha256: "9cc9b32cf52c90dd34c1cf396ed40010b2c74e69adbb0ff16005afa900971ad8"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.3.0"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.0"
-  freezed_annotation:
-    dependency: transitive
-    description:
-      name: freezed_annotation
-      sha256: c2e2d632dd9b8a2b7751117abcfc2b4888ecfe181bd9fca7170d9ef02e595fe2
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.4.4"
   gap:
     dependency: "direct main"
     description:
@@ -272,14 +248,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
-  gif:
-    dependency: "direct main"
-    description:
-      name: gif
-      sha256: ade95694f1471da737922806818ffade2814d1d7f8d10af38ebcf36ace012bc0
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.3.0"
   html:
     dependency: transitive
     description:
@@ -368,14 +336,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.0"
-  localization:
-    dependency: "direct main"
-    description:
-      name: localization
-      sha256: "9fa21644b75ca3fe844f8f115d03cd6fdc675054dd9aab6c5de5861145ea57b5"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.1"
   matcher:
     dependency: transitive
     description:
