@@ -4,6 +4,7 @@ import 'package:hb_florestal/app/modules/home/presentation/pages/sections/aprese
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/contact_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/equipaments_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/footer_section.dart';
+import 'package:hb_florestal/app/modules/home/presentation/pages/sections/services_section.dart';
 import 'package:hb_florestal/app/ui/components/appbars/custom_app_bar.dart';
 import 'package:hb_florestal/app/ui/components/appbars/custom_drawer.dart';
 import 'package:hb_florestal/main.dart';
@@ -39,6 +40,7 @@ class _HomePageState extends State<HomePage> with SignalsMixin {
               ApresentationSection(),
               AboutUsSection(),
               EquipamentsSection(),
+              ServicesSection(),
               ContactSection(),
               FooterSection(),
             ],

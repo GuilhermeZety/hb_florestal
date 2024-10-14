@@ -96,7 +96,7 @@ class NumbersContent extends ContentModel {
   }
 
   factory NumbersContent.fromMap(Map<String, dynamic> map) {
-    var numeros = List<Map<String, dynamic>>.from(map['data']['primeiro']);
+    var numeros = List<Map<String, dynamic>>.from(map['data']['data']);
     return NumbersContent(
       numbers: numeros.map((e) => (number: e['numero'] as int, descricao: e['descricao'].first['text'] as String)).toList(),
     );
