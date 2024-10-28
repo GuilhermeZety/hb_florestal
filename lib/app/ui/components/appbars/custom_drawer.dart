@@ -10,8 +10,9 @@ import 'package:hb_florestal/app/core/common/extensions/widget/widget_extension.
 import 'package:hb_florestal/app/core/common/utils/scroll_util.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/about_us_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/apresentation_section.dart';
-import 'package:hb_florestal/app/modules/home/presentation/pages/sections/contact_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/equipaments_section.dart';
+import 'package:hb_florestal/app/modules/home/presentation/pages/sections/services_section.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
@@ -32,7 +33,7 @@ class CustomDrawer extends StatelessWidget {
               Icons.home_outlined,
               color: AppColors.grey_800,
             ),
-            name: 'home',
+            name: 'Inicio',
             ontap: () {
               Scaffold.of(context).closeEndDrawer();
               ScrollUtil.to(ApresentationSection.currentKey.currentContext!);
@@ -43,7 +44,7 @@ class CustomDrawer extends StatelessWidget {
               Icons.person_outlined,
               color: AppColors.grey_800,
             ),
-            name: 'about_me',
+            name: 'Quem Somos',
             ontap: () {
               Scaffold.of(context).closeEndDrawer();
               ScrollUtil.to(AboutUsSection.currentKey.currentContext!);
@@ -54,7 +55,7 @@ class CustomDrawer extends StatelessWidget {
               Icons.apps_outlined,
               color: AppColors.grey_800,
             ),
-            name: 'projects',
+            name: 'Equipamentos',
             ontap: () {
               Scaffold.of(context).closeEndDrawer();
               ScrollUtil.to(EquipamentsSection.currentKey.currentContext!);
@@ -62,40 +63,33 @@ class CustomDrawer extends StatelessWidget {
           ),
           ItemDrawer(
             icon: const Icon(
-              Icons.email_outlined,
+              Icons.work_outline,
               color: AppColors.grey_800,
             ),
-            name: 'contact',
+            name: 'Serviços',
             ontap: () {
               Scaffold.of(context).closeEndDrawer();
-              ScrollUtil.to(ContactSection.currentKey.currentContext!);
+              ScrollUtil.to(ServicesSection.currentKey.currentContext!);
             },
           ),
           const Spacer(),
-          Center(
-            child: Column(
-              children: [
-                const Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      'Desenvolvido com ',
-                    ),
-                    Icon(
-                      Icons.favorite,
-                      size: 14,
-                      color: AppColors.error,
-                    ),
-                    Text(
-                      ' por',
-                    ),
-                  ],
-                ),
-                const Text(
-                  'Guilherme Martins',
-                ).gradient(AppColors.gradient),
-              ],
-            ).pBottom(24),
+          GestureDetector(
+            onTap: () {
+              launchUrl(Uri.parse('https://guilhermezety.github.io/'), mode: LaunchMode.externalApplication);
+              Scaffold.of(context).closeEndDrawer();
+            },
+            child: Center(
+              child: Column(
+                children: [
+                  const Text(
+                    'Desenvolvido por',
+                  ),
+                  const Text(
+                    'Guilherme Martins',
+                  ).gradient(AppColors.gradientZety),
+                ],
+              ).pBottom(24),
+            ),
           ),
         ],
       ),

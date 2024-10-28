@@ -9,8 +9,8 @@ import 'package:hb_florestal/app/core/common/utils/scroll_util.dart';
 import 'package:hb_florestal/app/core/shared/session_memory.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/about_us_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/apresentation_section.dart';
-import 'package:hb_florestal/app/modules/home/presentation/pages/sections/contact_section.dart';
 import 'package:hb_florestal/app/modules/home/presentation/pages/sections/equipaments_section.dart';
+import 'package:hb_florestal/app/modules/home/presentation/pages/sections/services_section.dart';
 import 'package:hb_florestal/main.dart';
 import 'package:signals/signals_flutter.dart';
 
@@ -91,13 +91,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
           const Gap(8),
           AppBarItem(
             title: 'Serviços',
-            currentKey: ContactSection.currentKey,
-            animationDelay: 400.ms,
-          ),
-          const Gap(8),
-          AppBarItem(
-            title: 'Contato',
-            currentKey: ContactSection.currentKey,
+            currentKey: ServicesSection.currentKey,
             animationDelay: 400.ms,
           ),
         ],

@@ -22,7 +22,7 @@ class ServicesSection extends StatefulWidget {
 }
 
 class _ProjectsSectionState extends State<ServicesSection> {
-  EquipamentosContent equipamentos = PrismicMemory().equipamentos;
+  ServicesContent servicos = PrismicMemory().servicos;
   CarouselSliderController carouselController = CarouselSliderController();
 
   @override
@@ -36,10 +36,9 @@ class _ProjectsSectionState extends State<ServicesSection> {
           child: Column(
             children: [
               _buildTitle(),
-              Gap(context.isDesktop ? 48 : 32),
-              _buildControllerAndDivider(),
-              Gap(context.isDesktop ? 48 : 32),
+              Gap(context.isDesktop ? 84 : 48),
               _buildServices(),
+              Gap(context.isDesktop ? 48 : 32),
             ],
           ),
         ).expandedH(),
@@ -55,17 +54,16 @@ class _ProjectsSectionState extends State<ServicesSection> {
       children: [
         NamedTitle(
           title: 'Nossos',
-          subtitle: 'Equipamentos',
+          subtitle: 'Serviços',
           fontSize: context.isDesktop ? 64 : 36,
-          inverted: true,
+          inverted: false,
         ),
         Gap(context.isDesktop ? 24 : 12),
         GradientTextHighlight(
-          text: equipamentos.descricao.text,
-          spans: equipamentos.descricao.textHighlight,
+          text: servicos.descricao.text,
+          spans: servicos.descricao.textHighlight,
           gradient: AppColors.gradient,
           style: const TextStyle(
-            color: AppColors.white,
             fontSize: 16,
           ),
         ).expanded(flex: context.width < 1250 ? null : 1),
@@ -73,110 +71,124 @@ class _ProjectsSectionState extends State<ServicesSection> {
     ).pH(context.pageMargin);
   }
 
-  Widget _buildControllerAndDivider() {
-    return Row(
-      children: [
-        const Divider(
-          color: AppColors.white,
-        ).expanded(),
-        const Gap(40),
-        IconButton(
-          onPressed: () {
-            carouselController.previousPage();
-          },
-          icon: const Icon(
-            Icons.keyboard_arrow_left_rounded,
-            color: AppColors.white,
-            size: 80,
-          ),
-        ),
-        const Gap(10),
-        IconButton(
-          onPressed: () {
-            carouselController.nextPage();
-          },
-          icon: const Icon(
-            Icons.keyboard_arrow_right_rounded,
-            color: AppColors.white,
-            size: 80,
-          ),
-        ),
-      ],
-    ).pH(context.pageMargin / 1.8);
-  }
-
   Widget _buildServices() {
+    if (context.width > 1250) {
+      return SizedBox(
+        width: context.width,
+        height: 400,
+        child: _buildServicesDesktop(),
+      );
+    }
     return LayoutBuilder(
       builder: (context, ccc) {
         var va = getVA(ccc.maxWidth);
         return SizedBox(
           width: context.width,
+          height: 400,
           child: CarouselSlider(
             carouselController: carouselController,
             options: CarouselOptions(
               viewportFraction: va.viewport,
-              enlargeCenterPage: false,
               enableInfiniteScroll: true,
               autoPlay: true,
               autoPlayInterval: 6.seconds,
               aspectRatio: va.aspectRatio,
+              enlargeCenterPage: true,
+              enlargeFactor: 0.3,
             ),
-            items: [
-              ...equipamentos.equipamentos.map(
-                (e) => equipementItem(
-                  e.imagem,
-                  e.titulo,
-                  e.descricao,
-                ).pH(8),
-              ),
-            ],
+            items: List.generate(
+              servicos.servicos.length,
+              (index) => serviceItem(
+                index + 1,
+                servicos.servicos[index].titulo,
+                servicos.servicos[index].subtitulo,
+                servicos.servicos[index].descricao,
+              ).pH(4),
+            ),
           ),
         );
       },
     ).pH(context.pageMargin);
   }
 
-  Widget equipementItem(String image, String title, String description) {
-    double size = context.width > 1250
-        ? 450
-        : context.isMobile
-            ? 300
-            : 350;
-    return SizedBox(
+  Widget _buildServicesDesktop() {
+    return GridView.count(
+      crossAxisCount: 4,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      mainAxisSpacing: 12,
+      crossAxisSpacing: 12,
+      childAspectRatio: 0.8,
+      children: List.generate(
+        servicos.servicos.length,
+        (index) => serviceItem(
+          index + 1,
+          servicos.servicos[index].titulo,
+          servicos.servicos[index].subtitulo,
+          servicos.servicos[index].descricao,
+        ).pH(4),
+      ),
+    ).pH(context.pageMargin);
+  }
+
+  Widget serviceItem(int index, String title, String subtitle, String description) {
+    double size = 300;
+    return Container(
+      decoration: const BoxDecoration(
+        color: AppColors.green_500,
+        borderRadius: BorderRadius.all(Radius.circular(5)),
+      ),
       width: size,
+      padding: const EdgeInsets.all(12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.network(
-            image,
-            width: size,
-            height: size,
+          Row(
+            children: [
+              Text(
+                index.toString(),
+                style: TextStyle(
+                  fontSize: context.isDesktop ? 32 : 24,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.white,
+                ),
+              ),
+              const Gap(12),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.white,
+                ),
+              ).expanded(),
+            ],
           ),
-          Gap(context.isDesktop ? 24 : 12),
+          const Gap(24),
           Text(
-            title,
+            subtitle,
             style: TextStyle(
-              fontSize: context.isDesktop ? 32 : 24,
+              fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: AppColors.white,
+              color: AppColors.white.withOpacity(0.6),
             ),
           ),
           Gap(context.isDesktop ? 24 : 12),
           AutoSizeText(
             description,
-            style: TextStyle(
-              fontSize: context.isDesktop ? 18 : 16,
+            style: const TextStyle(
+              fontSize: 14,
               fontWeight: FontWeight.normal,
-              color: AppColors.white.withOpacity(0.6),
+              color: AppColors.white,
             ),
-          ).expandedH(),
+          ).expanded(),
         ],
       ),
     );
   }
 
   ({double viewport, double aspectRatio}) getVA(double width) {
-    var viewport = 0.35;
+    var viewport = 0.3;
     double aspectRatio = 2;
     if (width < 1600) {
       aspectRatio = 1.7;
@@ -206,9 +218,10 @@ class _ProjectsSectionState extends State<ServicesSection> {
       aspectRatio = 0.5;
     }
     if (width < 335) {
-      viewport = 1;
-      aspectRatio = 0.4;
+      viewport = 0.8;
+      aspectRatio = 0.9;
     }
+    aspectRatio = 1;
     return (viewport: viewport, aspectRatio: aspectRatio);
   }
 }

@@ -38,6 +38,15 @@ class AppColors {
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
   );
+  static const LinearGradient gradientZety = LinearGradient(
+    colors: [
+      Color(0xFF6D45F5),
+      Color(0xFFE76875),
+      Color(0xFFC3802A),
+    ],
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+  );
 
   //
   static const Color info = Color(0xFF0079BC);
